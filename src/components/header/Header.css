@@ -1,0 +1,79 @@
+.app-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(248, 249, 250);
+    border-bottom: 1px solid #ddd;
+    padding: 15px 12px;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-menu-icon {
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.header-menu-icon:hover {
+    color: #000;
+}
+
+.profile-popup {
+    position: absolute;
+    top: 30px;
+    right: -300px;
+    width: 200px;
+    height: 20%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+}
+
+.profile-popup.show {
+    right: 0;
+}
+
+.profile-header-popup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgb(248, 249, 250);
+    border-radius: 7px 7px 0 0;
+}
+
+.close-icon {
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-icon:hover {
+    color: #000;
+}
+
+.profile-body {
+    padding: 15px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 6;
+    transition: opacity 0.3s ease-in-out;
+}
