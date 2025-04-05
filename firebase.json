@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "dist",
-     "site": "tasktitan",
+    "site": "tasktitan",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -13,5 +13,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }
