@@ -1,0 +1,90 @@
+.task-tabs {
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tab-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab-buttons .active {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tab-task-card {
+    background-color: #f2f2f2;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tab-task-name {
+    font-weight: 600;
+}
+
+.tab-task-date {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.no-tasks {
+    color: #999;
+    font-style: italic;
+}
+
+.tab-task-actions {
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+}
+
+.tab-task-actions button {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-task-actions button:hover {
+    transform: scale(1.15);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab-task-actions button:first-child svg {
+    color: #1e90ff;
+}
+
+.tab-task-actions button:last-child svg {
+    color: #dc3545;
+}
+
+.add-future-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}

@@ -62,7 +62,8 @@ const GroupDetails = () => {
 
         {/* Group Name */}
         {selectedGroup ? (
-          <h2 className="group-name">{selectedGroup.groupName}</h2>
+          <h2 className="group-name">{selectedGroup.groupName} {selectedGroup.money != undefined && (<span className="group-money"> ${selectedGroup.money}</span>
+          )} </h2>
         ) : (
           <p>Loading group name...</p>
         )}
