@@ -96,11 +96,11 @@ const FriendsPage = () => {
             {groupsList.map(group => (
               <Card key={group.groupID} className="group-card" onClick={() => handleGroupClick(group.groupID)}>
                 <Card.Body className="group-card-body">
-                  <div>
-                    <Card.Img variant="top" src={group.groupIcon} />
+                  <div className="icon-format">
+                    <Card.Img className="group-icon-img" variant="top" src={group.groupIcon} />
                   </div>
                   <div>
-                    <Card.Title>{group.groupName}</Card.Title>
+                    <Card.Title className="group-name">{group.groupName}</Card.Title>
                   </div>
                 </Card.Body>
               </Card>

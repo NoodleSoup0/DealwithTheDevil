@@ -3,12 +3,16 @@
 /* Container for the Group Details Page */
 .group-details-page {
     position: relative;
-    padding-top: 80px; /* To avoid overlap with the fixed header */
+    padding-top: 80px;
     padding-left: 15px;
     padding-right: 15px;
     background-color: #f8f9fa;
     height: 100%;
     overflow-y: auto;
+    background: #EFEBE6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Group Header */
@@ -45,6 +49,13 @@
     margin: 0;
     text-align: center;
     flex-grow: 1;
+  }
+
+  .group-money {
+    font-weight: 20px;
+    font-size: 0.9rem;
+    color: #0C7C59;
+    margin-left: 10px;
   }
   
   /* Member Cards Section */
