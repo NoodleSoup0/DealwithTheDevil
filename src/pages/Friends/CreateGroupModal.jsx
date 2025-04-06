@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './CreateGroupModal.css';
 import { Modal, Button, Form, InputGroup, FormControl, Badge } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import googleLogo from '../../images/favicon.svg';
@@ -131,7 +132,7 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
   };
 
   return (
-    <Modal show={show} onHide={onHide}>
+    <Modal show={show} onHide={onHide} size="md" className="create-group=modal">
       <Modal.Header closeButton>
         <Modal.Title>Create Group</Modal.Title>
       </Modal.Header>

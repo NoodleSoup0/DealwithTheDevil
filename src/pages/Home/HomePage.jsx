@@ -48,9 +48,9 @@ const HomePage = () => {
     let isFullyComplete = null;
 
     if (user && userData && allGroups) {
-    const userName = userData.displayName;
+    const userID = userData.userID;
     const userGroups = Object.values(allGroups).filter(group =>
-        group.members.includes(userName)
+        group.members.includes(userID)
     );
     totalMoney = userGroups.reduce((sum, group) => sum + (group.money || 0), 0);
     const progress = userData.ProgressTrack?.Active;
