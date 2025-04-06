@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './SchedulePage.css';
 import Header from '../../components/header/Header';
 import CustomModal from '../../components/modal/CustomModal';
+import TaskTabs from '../../components/tasktabs/TaskTabs';
 import { useAuthState, useDbData, useDbUpdate } from "../../utilities/firebase";
 import { Container, Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -151,7 +152,7 @@ const SchedulePage = () => {
     updateTask(updates);
 
     updateActiveProgress({
-      Progress: 0,
+      Progress: firebaseProgress?.Progress || 0,
       Total: (firebaseProgress?.Total || 0) + stagedTasks.length,
       Date: new Date().toISOString().split('T')[0]
     });
@@ -323,6 +324,10 @@ const SchedulePage = () => {
             </Button>
           </div>
 
+        </div>
+
+        <div className="task-tabs-container">
+          <TaskTabs missedTasks={missedTasks} futureTasks={futureTasks} currentTasks={currentTasks} />
         </div>
       </Container>
 
