@@ -1,75 +1,71 @@
 .schedule-page {
     background: #EFEBE6;
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding-bottom: 90px;
-}
-
-.schedule-page-container {
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  .schedule-page-container {
     padding-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.add-task-icon {
-    margin-bottom: 5px;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease-in-out;
-}
-
-.add-task-icon:hover {
-    color: #000;
-}
-
-.date-header {
-    padding-left: 0;
-    gap: 4rem;
+  }
+  
+  .schedule-page-content {
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  /* Header row with date and add icon */
+  .date-header {
+    gap: 2rem;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-}
-
-.date-heading {
+    background: #f8f8f8;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .date-heading {
     font-size: 1.5rem;
-    font-weight: 600;
-    text-align: left;
-}
-
-
-.task-card.current {
-    background-color: #7b8b97;
-}
-
-.task-card.missed {
-    background-color: #b45f5f;
-}
-
-.task-card.future {
-    background-color: #5f7ab4;
-}
-
-.time-grid {
+    font-weight: 700;
+    color: #1C434E;
+  }
+  
+  .add-task-icon {
+    cursor: pointer;
+    color: #C89254;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .add-task-icon:hover {
+    color: #a36b35;
+  }
+  
+  /* Time Grid */
+  .time-grid {
     display: flex;
     flex-direction: column;
     border-left: 1px solid #aaa;
-    /* vertical line */
     margin-left: 50px;
     position: relative;
-}
-
-.time-row {
+  }
+  
+  .time-row {
     display: grid;
     grid-template-columns: 60px 1fr;
     align-items: flex-start;
     height: 2rem;
     position: relative;
-}
-
-.time-row::after {
+  }
+  
+  .time-row::after {
     content: '';
     position: absolute;
     left: -50px;
@@ -77,9 +73,9 @@
     bottom: 0;
     height: 1px;
     background-color: #ccc;
-}
-
-.time-label {
+  }
+  
+  .time-label {
     position: absolute;
     left: -60px;
     width: 60px;
@@ -87,21 +83,21 @@
     font-size: 0.75rem;
     color: #888;
     padding-right: 0.5rem;
-}
-
-.invisible-label {
+  }
+  
+  .invisible-label {
     visibility: hidden;
-}
-
-.time-cell {
+  }
+  
+  .time-cell {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     position: relative;
-}
-
-.task-card {
-    background-color: #7b8b97;
+  }
+  
+  /* Task Cards */
+  .task-card {
     border-radius: 10px;
     color: white;
     padding: 0.35rem 1rem;
@@ -110,21 +106,42 @@
     gap: 0.5rem;
     position: absolute;
     width: 240px;
-    height: 2rem;
     left: 5px;
     z-index: 1;
-}
-
-.task-card.completed {
-    background-color: #4caf50;
+    background-color: #1C434E;
+  }
+  
+  .task-card.current {
+    background-color: #1C434E;
+  }
+  
+  .task-card.missed {
+    background-color: #93032E;
+  }
+  
+  .task-card.future {
+    background-color: #5f7ab4;
+  }
+  
+  .task-card.completed {
+    background-color: #0C7C59;
     opacity: 0.95;
-}
-
-.task-card.completed .task-checkbox {
+  }
+  
+  .task-card.completed .task-checkbox {
     cursor: not-allowed;
-}
-
-.delete-task-btn {
+  }
+  
+  /* Checkbox + Delete Icon */
+  .task-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+  
+  .delete-task-btn {
     position: absolute;
     top: -2px;
     right: 8px;
@@ -135,69 +152,71 @@
     cursor: pointer;
     z-index: 2;
     transition: color 0.2s ease;
-}
-
-.delete-task-btn:hover {
+  }
+  
+  .delete-task-btn:hover {
     color: #f9aeae;
-}
-
-.task-checkbox {
-    position: absolute;
-    top: 12px;
-    left: 16px;
-    transform: scale(1.5);
-    cursor: pointer;
-}
-
-.task-name {
-    padding-top: 0rem;
+  }
+  
+  .task-name {
     padding-left: 1.2rem;
-}
-
-.confirm-button {
-    background-color: #b45f5f;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  /* Confirm button */
+  .confirm-button {
+    background-color: #C89254;
     color: white;
     padding: 0.5rem 1.2rem;
     border: none;
     border-radius: 8px;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.confirm-button:hover {
-    background-color: #a04d4d;
-}
-
-.custom-modal-body form {
+    font-family: 'Verdana', sans-serif;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .confirm-button:hover {
+    background-color: #b77a38;
+  }
+  
+  /* No tasks message */
+  .no-tasks-message p {
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  /* Modal Custom Styling */
+  .custom-modal-body form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
-
-/* Label */
-.custom-modal-body .form-label {
+  }
+  
+  .custom-modal-body .form-label {
     font-weight: 600;
     font-size: 0.95rem;
     color: #333;
-}
-
-/* Input fields */
-.custom-modal-body .form-control {
+  }
+  
+  .custom-modal-body .form-control {
     padding: 0.6rem 0.75rem;
     font-size: 0.95rem;
     border-radius: 8px;
     border: 1px solid #ccc;
     transition: border 0.2s ease;
-}
-
-.custom-modal-body .form-control:focus {
+  }
+  
+  .custom-modal-body .form-control:focus {
     border-color: #495057;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-}
-
-/* Add Task button */
-.custom-modal-body .btn-primary {
-    background-color: #1e3a8a;
+  }
+  
+  .custom-modal-body .btn-primary {
+    background-color: #1C434E;
     border: none;
     font-weight: 600;
     padding: 0.6rem;
@@ -205,27 +224,21 @@
     font-size: 1rem;
     transition: background-color 0.2s ease;
     margin-bottom: 10px;
-}
-
-.custom-modal-body .btn-primary:hover {
-    background-color: #1a3279;
-}
-
-/* For the confirm modal message text */
-.custom-modal-body p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.custom-modal-body .btn {
+  }
+  
+  .custom-modal-body .btn-primary:hover {
+    background-color: #16363f;
+  }
+  
+  .custom-modal-body .btn {
     padding: 0.5rem 1rem;
     font-weight: 500;
     border-radius: 6px;
     font-size: 0.95rem;
-}
-
-.custom-modal-body .btn:hover {
+  }
+  
+  .custom-modal-body .btn:hover {
     opacity: 0.9;
     transition: all 0.2s ease-in-out;
-}
+  }
+  
