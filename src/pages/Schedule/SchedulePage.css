@@ -13,3 +13,219 @@
     flex-direction: column;
     align-items: center;
 }
+
+.add-task-icon {
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.add-task-icon:hover {
+    color: #000;
+}
+
+.date-header {
+    padding-left: 0;
+    gap: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.date-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+.task-card.current {
+    background-color: #7b8b97;
+}
+
+.task-card.missed {
+    background-color: #b45f5f;
+}
+
+.task-card.future {
+    background-color: #5f7ab4;
+}
+
+.time-grid {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #aaa;
+    /* vertical line */
+    margin-left: 50px;
+    position: relative;
+}
+
+.time-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: flex-start;
+    height: 2rem;
+    position: relative;
+}
+
+.time-row::after {
+    content: '';
+    position: absolute;
+    left: -50px;
+    width: calc(100% + 60px);
+    bottom: 0;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.time-label {
+    position: absolute;
+    left: -60px;
+    width: 60px;
+    text-align: right;
+    font-size: 0.75rem;
+    color: #888;
+    padding-right: 0.5rem;
+}
+
+.invisible-label {
+    visibility: hidden;
+}
+
+.time-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.task-card {
+    background-color: #7b8b97;
+    border-radius: 10px;
+    color: white;
+    padding: 0.35rem 1rem;
+    display: flex;
+    align-items: left;
+    gap: 0.5rem;
+    position: absolute;
+    width: 240px;
+    height: 2rem;
+    left: 5px;
+    z-index: 1;
+}
+
+.task-card.completed {
+    background-color: #4caf50;
+    opacity: 0.95;
+}
+
+.task-card.completed .task-checkbox {
+    cursor: not-allowed;
+}
+
+.delete-task-btn {
+    position: absolute;
+    top: -2px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #ffc9c9;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s ease;
+}
+
+.delete-task-btn:hover {
+    color: #f9aeae;
+}
+
+.task-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.task-name {
+    padding-top: 0rem;
+    padding-left: 1.2rem;
+}
+
+.confirm-button {
+    background-color: #b45f5f;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-button:hover {
+    background-color: #a04d4d;
+}
+
+.custom-modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Label */
+.custom-modal-body .form-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Input fields */
+.custom-modal-body .form-control {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border 0.2s ease;
+}
+
+.custom-modal-body .form-control:focus {
+    border-color: #495057;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Add Task button */
+.custom-modal-body .btn-primary {
+    background-color: #1e3a8a;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.custom-modal-body .btn-primary:hover {
+    background-color: #1a3279;
+}
+
+/* For the confirm modal message text */
+.custom-modal-body p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.custom-modal-body .btn {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.custom-modal-body .btn:hover {
+    opacity: 0.9;
+    transition: all 0.2s ease-in-out;
+}
