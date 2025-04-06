@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Importing useParams and useNavigate
 import { users, groups } from '../Friends/mockData.jsx'; // Importing the mock data
 import { Card, Button } from "react-bootstrap";
+import { useDbData } from '../../utilities/firebase.js';
 import './GroupDetails.css';
 
 const GroupDetails = () => {
   const { groupID } = useParams(); // Getting groupID from the URL
+  console.log("Group ID from URL:", groupID); // Debugging log
   const navigate = useNavigate(); // Accessing the navigate function
   const [selectedGroup, setSelectedGroup] = useState(null);
 
