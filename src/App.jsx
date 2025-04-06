@@ -10,6 +10,7 @@ import SchedulePage from './pages/Schedule/SchedulePage';
 import NavigationBar from './components/navigation/NavigationBar';
 import SmartphoneFrame from './components/phoneframe/SmartphoneFrame';
 import GroupDetails from './pages/Friends/GroupDetails.jsx';
+import FriendDetails from './pages/Friends/FriendDetails.jsx';
 import './App.css';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
               <Route path="/friends" element={<FriendsPage />} />
               <Route path="/schedule" element={<SchedulePage />} />
               <Route path="/group-details/:groupID" element={<GroupDetails />} />
+              <Route path="/friend-details/:userID" element={<FriendDetails />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
