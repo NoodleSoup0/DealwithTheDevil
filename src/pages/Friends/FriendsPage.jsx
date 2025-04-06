@@ -5,9 +5,11 @@ import { Container, Card, Button, Modal, Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom'; // Importing useNavigate
 import CreateGroupModal from './CreateGroupModal.jsx';
 import { useDbData } from '../../utilities/firebase.js';
+import { getAuth } from 'firebase/auth'; // Import Firebase Auth
 
 const FriendsPage = () => {
   const navigate = useNavigate(); // Using useNavigate hook to get the navigate function
+
   // Using fetch groups and users from the DB
   const [groupsData, groupsError] = useDbData('groups');
   const [usersData, usersError] = useDbData('users');
@@ -40,7 +42,14 @@ const FriendsPage = () => {
 
   // Handle add friend button click
   const handleAddFriendClick = () => {
-    setShowAddFriendModal(true); // Show Add Friend modal
+    const auth = getAuth(); // Get Firebase Auth instance
+    const userUID = auth.currentUser?.uid; // Get current user's UID
+
+    if (userUID) {
+      navigate(`/friend-details/${userUID}`); // Navigate to FriendDetails page with userUID
+    } else {
+      console.error('User is not authenticated');
+    }
   };
 
   // Handle create group button click
