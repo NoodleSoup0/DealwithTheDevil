@@ -151,6 +151,7 @@ const SchedulePage = () => {
     updateTask(updates);
 
     updateActiveProgress({
+      Progress: 0,
       Total: (firebaseProgress?.Total || 0) + stagedTasks.length,
       Date: new Date().toISOString().split('T')[0]
     });
