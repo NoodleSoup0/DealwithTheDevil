@@ -2,8 +2,8 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: rgb(248, 249, 250);
-    border-top: 1px solid #ddd;
+    background-color: #1C434E;
+    border-top: 1px solid #EFEBE6;
     z-index: 5;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     padding: 5px 0;
@@ -12,7 +12,7 @@
 .nav-icon {
     flex: 1;
     text-align: center;
-    color: gray;
+    color: #EFEBE6;
     text-decoration: none;
 }
 
@@ -27,7 +27,12 @@
 
 .nav-icon.active i,
 .nav-icon.active p {
-    color: #000;
+    color: #C89254;
+}
+
+.nav-icon:hover i,
+.nav-icon:hover p {
+    color: #C89254;
 }
 
 /* Placeholder ensures spacing stays correct */
@@ -48,7 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #EFEBE6;
     font-size: 30px;
     text-decoration: none;
     outline: none;
@@ -68,7 +73,7 @@
 
 .add-icon.active i,
 .add-icon:hover i {
-    color: white;
+    color: #EFEBE6;
 }
 
 /* Ensure even spacing */

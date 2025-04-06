@@ -16,10 +16,10 @@ const NavigationBar = () => {
                     <Nav className="w-100 d-flex justify-content-between align-items-center position-relative">
                         <Nav.Link as={NavLink} to="/" className="nav-icon" activeclassname="active">
                             <i className="bi bi-house-door-fill"></i>
-                            <p>Home</p>
+                            <p>Dashboard</p>
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="/schedule" className="nav-icon" activeclassname="active">
-                            <LuListTodo size={28} />
+                            <i className="bi bi-calendar4-range"></i>
                             <p>Schedule</p>
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="/friends" className="nav-icon" activeclassname="active">
