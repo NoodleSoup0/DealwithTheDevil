@@ -24,7 +24,7 @@ const Header = ({ title }) => {
         <div>
             <div className="app-header">
                 <Container className="d-flex justify-content-between align-items-center">
-                    <h4 className="m-0">{title}</h4>
+                    <h4 className="m-0 header-title">{title}</h4>
                     {/* <BsThreeDotsVertical size={20} className="header-menu-icon" onClick={handleShow} /> */}
                     <IoSettingsOutline size={25} className="header-menu-icon" onClick={handleShow} />
                 </Container>
