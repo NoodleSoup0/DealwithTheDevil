@@ -4,7 +4,7 @@ We used the react library (routing, bootstrap, etc), Node.js, and uuid to genera
 
 # Framework 
 
-We used the following react framework that have vitest built in. This was developed by Professor Christopher Riesbeck at Northwestern University for students to learn and develop apps in react (used for CS392 and CS394 at Northwestern)
+We used the following react framework that have vitest built in for unit testing. This was developed by Professor Christopher Riesbeck at Northwestern University for students to learn and develop apps in react (used for CS392 and CS394 at Northwestern)
 https://github.com/criesbeck/react-vitest
 
 ## Credits
