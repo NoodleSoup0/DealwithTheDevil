@@ -38,7 +38,3 @@ your-app-name
 ├── vite.config.js
 ```
 
-
-## License
-
-This project is licensed under the terms of the [MIT license](./LICENSE).
