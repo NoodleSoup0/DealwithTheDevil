@@ -4,6 +4,7 @@ import { Modal, Button, Form, InputGroup, FormControl, Badge } from 'react-boots
 import { v4 as uuidv4 } from 'uuid';
 import googleLogo from '../../images/favicon.svg';
 import { useDbAdd, useAuthState } from '../../utilities/firebase';
+import CustomModal from '../../components/modal/CustomModal';
 
 
 const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
@@ -15,6 +16,8 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [add, addResult] = useDbAdd('groups');
+  const [user] = useAuthState();
+  const userUID = user?.uid;
 
   const MAX_FRIENDS = 3;
 
@@ -29,7 +32,7 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
       (user) =>
         !selectedFriends.includes(user.userID) && // Don't show already selected users
         (user.displayName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchQuery.toLowerCase()))
+          user.email.toLowerCase().includes(searchQuery.toLowerCase()))
     );
     setFilteredUsers(filtered);
   }, [searchQuery, usersList, selectedFriends]);
@@ -48,7 +51,7 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
 
     // Debug logging
     console.log("Selecting user:", user);
-    
+
     if (!selectedFriends.includes(user.userID)) {
       setSelectedFriends(prev => [...prev, user.userID]);
       setSearchQuery(''); // Clear search after selection
@@ -65,10 +68,10 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
   // Include the current user in the members array
   const [authUser] = useAuthState(); // This gives the currently authenticated user
   useEffect(() => {
-        if (authUser) {
-            ; // Set the authenticated user
-        }
-    }, [authUser]);
+    if (authUser) {
+      ; // Set the authenticated user
+    }
+  }, [authUser]);
 
   // Submit the group creation
   const handleSubmit = async () => {
@@ -90,10 +93,10 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
 
       const groupID = uuidv4();
       const createdAt = Date.now();
-    
-      const allMembers = currentUser?.userID 
-        ? [currentUser.userID, ...selectedFriends] 
-        : [...selectedFriends];
+
+
+
+      const allMembers = [userUID, ...selectedFriends]
 
       console.log('currentUser:', currentUser);
 
@@ -105,14 +108,14 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
         members: allMembers,
         money: parseFloat(money),
       };
-      
+
       // Debug logging
       console.log('Group data:', groupData);
       console.log('Members array:', allMembers);
 
       // Call add function and wait for it to complete
       const result = await add(groupData, groupID);
-      
+
       // Handle the response based on the result directly
       if (result && result.error) {
         setError(result.message || 'Error creating group');
@@ -132,11 +135,9 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
   };
 
   return (
-    <Modal show={show} onHide={onHide} size="md" className="create-group=modal">
-      <Modal.Header closeButton>
-        <Modal.Title>Create Group</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+    // CustomModal component to show the modal
+    <CustomModal show={show} onClose={onHide} title="Create Group">
+      <div className="create-group-modal-body">
         {error && <p className="text-danger">{error}</p>}
 
         <Form>
@@ -194,8 +195,6 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
               onChange={handleSearchChange}
               disabled={selectedFriends.length >= MAX_FRIENDS}
             />
-            
-            {/* Search Results */}
             {searchQuery.trim() !== '' && (
               <div className="mt-2 search-results border rounded" style={{ maxHeight: '200px', overflow: 'auto' }}>
                 {filteredUsers.length === 0 ? (
@@ -232,17 +231,20 @@ const CreateGroupModal = ({ usersList, show, onHide, currentUser }) => {
               />
             </InputGroup>
           </Form.Group>
+
+          {/* Modal Footer Buttons */}
+          <Modal.Footer className="d-flex justify-content-end gap-5 mt-3">
+            <Button variant="secondary" onClick={onHide} className="cancel-button">
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleSubmit}>
+              Create Group
+            </Button>
+          </Modal.Footer>
         </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>
-          Cancel
-        </Button>
-        <Button variant="primary" onClick={handleSubmit}>
-          Create Group
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      </div>
+    </CustomModal>
+
   );
 };
 

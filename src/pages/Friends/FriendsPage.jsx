@@ -21,7 +21,17 @@ const FriendsPage = () => {
   useEffect(() => {
     // Check if both groupsData and usersData are available
     if (groupsData && usersData) {
-      setGroupsList(Object.values(groupsData)); // Set groups list
+      // setGroupsList(Object.values(groupsData)); // Set groups list
+      const auth = getAuth();
+      const userUID = auth.currentUser?.uid;
+
+      if (userUID) {
+        const filteredGroups = Object.values(groupsData).filter(group =>
+          group.members?.includes(userUID)
+        );
+        setGroupsList(filteredGroups);
+      }
+
       setUsersList(Object.values(usersData)); // Set users list
       setLoading(false); // Set loading to false after data is fetched
     }
