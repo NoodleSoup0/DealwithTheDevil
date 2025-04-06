@@ -1,15 +1,80 @@
-.friends-page {
-    background: #EFEBE6;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 90px;
+/* Button Styles */
+.friends-page-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 30px; /* Add space at the top */
 }
 
-.friends-page-container {
-    padding-top: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.friends-page-buttons .btn {
+  width: 48%; /* Adjust button width */
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.friends-page-buttons .btn:hover {
+  transform: scale(1.05);
+}
+
+.friends-page-buttons .btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.friends-page-buttons .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.friends-page-buttons .btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.friends-page-buttons .btn-success:hover {
+  background-color: #218838;
+}
+
+
+/* Overall layout for the groups-list */
+.groups-list {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  gap: 20px; /* Add space between group cards */
+}
+
+/* Group Cards Styling */
+.group-card {
+  background-color: white;
+  display: flex; 
+  align-items: center; 
+  width: 95%;
+  /* margin: 10px 0; */
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .group-card-body to display contents in a row */
+.group-card-body {
+  /* background-color: violet; */
+  display: flex; /* Align contents horizontally */
+  /* justify-content: flex-start;  */
+  width: 100%; /* Ensure it fills up the entire width of the card */
+  gap: 15px; /* Space between image and text */
+}
+
+.group-card:hover {
+  transform: scale(1.05);
+}
+
+
