@@ -50,6 +50,13 @@
     text-align: center;
     flex-grow: 1;
   }
+
+  .group-money {
+    font-weight: 20px;
+    font-size: 0.9rem;
+    color: #0C7C59;
+    margin-left: 10px;
+  }
   
   /* Member Cards Section */
   .group-details {
